@@ -53,11 +53,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
+		<!--dependency>
 			<groupId>com.codebin</groupId>
 			<artifactId>maven-demo</artifactId>
 			<version>0.0.1</version>
-		</dependency>
+		</dependency-->
 	</dependencies>
 	
 	 <build>

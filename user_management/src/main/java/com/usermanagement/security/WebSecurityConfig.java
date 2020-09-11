@@ -23,13 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(NoOpPasswordEncoder.getInstance())
 			.usersByUsernameQuery("SELECT name as username,password,enabled FROM user WHERE name=?");
-			//.authoritiesByUsernameQuery("SELECT user.name as username,role FROM user_roles INNER JOIN user ON user_roles.user_id = user.id WHERE user.name=?");
 	 }
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	   http.authorizeRequests() 
-	   			//.anyRequest().access("hasRole('ROLE_ADMIN')")
+	   			.anyRequest().permitAll()
 	   	   .and()
 	   	   		.formLogin()
 	   	   			.loginPage("/login").permitAll().defaultSuccessUrl("/getUsers",true)
